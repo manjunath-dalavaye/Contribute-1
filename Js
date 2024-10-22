@@ -1,0 +1,30 @@
+JavaScript Math.ceil with bind Method
+
+In JavaScript, the Math.ceil function is used to round a number up to the nearest integer. When combined with the Function.prototype.bind method, we can create a reusable version of the Math.ceil function.
+
+What is Math.ceil?
+Math.ceil is a built-in JavaScript function that rounds a number up to the next largest integer. For example, Math.ceil(4.3) will return 5.
+What is bind?
+The bind method creates a new function that, when called, has its this keyword set to the provided value. In this case, we are binding the Math object to the Math.ceil function, which ensures it is always executed in the correct context.
+Where to use Math.ceil with bind?
+You can use this approach when you need to repeatedly call Math.ceil in a functional programming context, or if you want to pass the ceilFunction as an argument to other functions.
+
+Example Code
+
+// Define a number
+let number = 10.5;
+
+// Create a bound function for Math.ceil
+let ceilFunction = Math.ceil.bind(Math);
+
+// Call the bound function on the number
+let result = ceilFunction(number);
+
+console.log(result); // Output: 11
+In this example:
+
+We define a number 10.5.
+We use bind to create a new function ceilFunction that is always bound to the Math object.
+When we call ceilFunction(10.5), the result is 11 because Math.ceil rounds up to the nearest integer.
+Why use bind?
+The bind method ensures that Math.ceil is always called in the context of Math, which is particularly useful if you're passing this function into higher-order functions or want to simplify reuse.
